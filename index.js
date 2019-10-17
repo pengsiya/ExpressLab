@@ -63,7 +63,8 @@ app.post('/artist/delete/:id',(req,res) => {
             // append new body
             obj_arr = JSON.parse(data);
         }
-        obj_arr.splice(req.param.id, 1);
+        console.log(req.params.id);
+        obj_arr.splice(req.params.id, 1);
         // save everybody again
         fs.writeFile("synchronous.txt", JSON.stringify(obj_arr), (err) => {
             if (err) {
