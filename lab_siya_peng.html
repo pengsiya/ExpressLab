@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+        <script src="lab_script.js"></script>
+        <title>Lab 02</title>
+    </head>
+    <body>
+        <div class="search_box">
+            <h1>Aritist Directory</h1>
+            <div class="search_bar">
+                <input  type="text">
+                <div class="addArtistButton">
+                    <button onclick="addArtist()">add artist</button>
+                    <button onclick="search()">search</button>
+                </div>
+            </div>
+        </div>
+        <form id = "addArtistList" class ="inputArtist" action="/artist/add" method="POST">
+            <ul>
+                <li>
+                    <input type="text" name="artist_name" placeholder="Artist name">
+                </li>
+                <li>
+                    <input type="text" name="about_artist" placeholder="About artist">                
+                </li>
+                <li>
+                    <input type="text" name="image_url" placeholder="image url"> 
+                </li>
+                <li>
+                    <input type="submit" value="add"/>
+                </li>
+            </ul>
+        </form>
+        <div id="artist_list" class="artistList">
+            <ul>
+                <!-- <li><img src="https://randomuser.me/api/portraits/med/men/1.jpg" alt="artist1">
+                    <div class=artistDes>
+                        <div class="artistName">Barot Bellingham</div>
+                        <div>Royal Academy of Painting and Sculpture</div>
+                    </div>
+                    <button onclick="deleteRowFunction(this)">delete</button>
+                </li>
+                <li>
+                    <img src="https://randomuser.me/api/portraits/med/men/11.jpg">
+                    Jonathan G. Ferrar 
+                    Artist to Watch in 2012
+                    <button onclick="deleteRowFunction(this)">delete</button>
+                </li>
+                <li>
+                    <img src="https://randomuser.me/api/portraits/med/women/7.jpg">
+                    Jason Zhu
+                    New York University
+                    <button onclick="deleteRowFunction(this)">delete</button>
+                </li>
+                <li>
+                    <img src="https://randomuser.me/api/portraits/med/women/77.jpg"></td>
+                    Vivian Zhang
+                    Art College in New Dehli
+                    <button onclick="deleteRowFunction(this)">delete</button>
+                </li>
+                <li>
+                    <img src="https://randomuser.me/api/portraits/med/women/47.jpg">
+                    Jennifer Jerome
+                    Singer
+                    <button onclick="deleteRowFunction(this)">delete</button>
+                </li> -->
+            </ul>
+        </div> 
+    </body>
+</html>
