@@ -36,7 +36,6 @@ app.post('/artist/add', (req, res) => {
             if (err) {
                 console.log(err);
             }
-            console.log("SHIT");
             res.redirect(301, '/');
         });
         /* Need to add some code here */
