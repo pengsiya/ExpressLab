@@ -32,16 +32,27 @@ app.post('/artist/add', (req, res) => {
         }
         obj_arr.push(artist);
         // save everybody again
-        fs.writeFileSync("synchronous.txt", JSON.stringify(obj_arr));
+        fs.writeFile("synchronous.txt", JSON.stringify(obj_arr), (err) => {
+            if (err) {
+                console.log(err);
+            }
+            console.log("SHIT");
+            res.redirect(301, '/');
+        });
         /* Need to add some code here */
-        res.redirect(301, '/');
+        // res.redirect(301, '/');
     });
 });
 
 app.get('/getData',(req,res) => {
-    var data = fs.readFileSync(path.join(__dirname + '/synchronous.txt'));
-    var obj = JSON.parse(data);
-    res.json(obj);
+    var data = fs.readFile(path.join(__dirname + '/synchronous.txt'), (err, data) => {
+        if (err) {
+            console.log(err);
+            return res.json([])
+        }
+        var obj = JSON.parse(data);
+        res.json(obj);
+    });
 })
 
 app.post('/artist/delete/:id',(req,res) => {
@@ -55,9 +66,14 @@ app.post('/artist/delete/:id',(req,res) => {
         }
         obj_arr.splice(req.param.id, 1);
         // save everybody again
-        fs.writeFileSync("synchronous.txt", JSON.stringify(obj_arr));
+        fs.writeFile("synchronous.txt", JSON.stringify(obj_arr), (err) => {
+            if (err) {
+                console.log(err);
+            }
+            res.redirect(301, '/');
+        });
         /* Need to add some code here */
-        res.redirect(301, '/');
+        // res.redirect(301, '/');
     });
 })
 // GET '/getJSON' -> send JSON file
